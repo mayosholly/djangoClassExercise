@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Categories</h1>
+        <a href="{% url 'categories:create' %}" class="btn btn-primary mb-3">Create New Category</a>
+        <ul class="list-group">
+            {% for category in categories %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    <a href="{% url 'categories:show' category.id %}">{{ category.name }}</a>
+                </span>
+                <span>
+                    <a href="{% url 'categories:edit' category.id %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'categories:delete' category.id %}" class="btn btn-sm btn-danger">Delete</a>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
